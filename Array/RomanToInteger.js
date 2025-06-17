@@ -1,24 +1,10 @@
 var romanToInt = function(s) {
     var sum = 0;
     for(let i = s.length ; i-- ; i >= 0){
-        if(i == 0){
-            if(i == s.length){
-                sum += symbolValue[s[i]];
-            }else{
-                if(symbolValue[s[i]] < symbolValue[s[i+1]]){
-                    sum -= symbolValue[s[i]];
-                }else{
-                    sum += symbolValue[s[i]];
-                }
-            }
-        }else if(i == s.length){
+        if(s.length != 0 && i != s.length && symbolValue[s[i]] < symbolValue[s[i+1]]){
+            sum -= symbolValue[s[i]];
+        } else {
             sum += symbolValue[s[i]];
-        }else{
-            if(symbolValue[s[i]] < symbolValue[s[i+1]]){
-                sum -= symbolValue[s[i]];
-            }else{
-                sum += symbolValue[s[i]];
-            }
         }
     }
 
